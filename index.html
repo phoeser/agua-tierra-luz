@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta property="og:title" content="Pachapaul – Agua, Tierra, Luz">
-<meta property="og:description" content="13 ruhige Songs zum Durchhören">
+<meta property="og:description" content="14 ruhige Songs zum Durchhören">
 <meta property="og:image" content="cover.jpg">
 <link rel="icon" href="cover.jpg">
 <title>Agua, Tierra, Luz</title>
@@ -58,7 +58,7 @@ footer{color:var(--muted);font-size:13px}
   <header>
     <div class="artist">Pachapaul</div>
     <h1>Agua, Tierra, Luz</h1>
-    <div class="meta" id="meta">13 Songs</div>
+    <div class="meta" id="meta">14 Songs</div>
   </header>
   <div class="actions">
     <button class="play-all" id="playAll" type="button">▶ Album abspielen</button>
@@ -81,13 +81,13 @@ footer{color:var(--muted);font-size:13px}
 <audio id="audio" preload="none"></audio>
 
 <script>
-const T=[["Bella Múnich",206],["Corazón Abierto",198],["Om Shanti",180],["Lluvia Suave",194],["Gracias por nada",196],["Bambú y Agua",306],["Luna de Agua",225],["Tierra que Respira",268],["Perhentian",244],["Luke",222],["Alemán",207],["Old Shadows",216],["Only Here, Only Now (Bonus Track)",270]];
+const T=[["Bella Múnich",206],["Corazón Abierto",198],["The Healer Within",230],["Om Shanti",180],["Lluvia Suave",194],["Gracias por nada",196],["Bambú y Agua",306],["Luna de Agua",225],["Tierra que Respira",268],["Perhentian",244],["Luke",222],["Alemán",207],["Old Shadows",216],["Only Here, Only Now (Bonus Track)",270]];
 const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
 const $=id=>document.getElementById(id);
 const audio=$("audio"),list=$("list");
 let idx=-1;
 const total=T.reduce((a,t)=>a+t[1],0);
-$("meta").textContent=`13 Songs · ${Math.floor(total/60)} Min.`;
+$("meta").textContent=`14 Songs · ${Math.floor(total/60)} Min.`;
 T.forEach(([n,d],i)=>{
   const li=document.createElement("li");
   const b=document.createElement("button");
