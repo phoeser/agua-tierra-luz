@@ -56,7 +56,7 @@ footer{color:var(--muted);font-size:13px}
     <div class="badge">Demo</div>
     <div class="artist">Pachapaul</div>
     <h1>Pacha<br><span>Rock</span></h1>
-    <div class="sub" id="meta">14 Songs</div>
+    <div class="sub" id="meta">15 Songs</div>
   </header>
   <button class="play-all" id="playAll" type="button">▶ Alles abspielen</button>
   <ol id="list"></ol>
@@ -75,7 +75,7 @@ footer{color:var(--muted);font-size:13px}
 </div>
 <audio id="audio" preload="none"></audio>
 <script>
-const T=[["Same Old Lie",208,""],["Louder Than You",206,"mit Frauenstimme"],["Pull the Plug",194,"mit Schlagzeugsolo"],["My Street",204,"Ballade"],["Not Here, Not Now, Not Ever",138,""],["Tomorrow's Still Ours",192,"Funk-Rock"],["Riff Raff Nation",182,""],["Isar Fever",206,""],["Born Here Too",198,"Garage-Rock, Frauenstimme"],["Nothing To Complain",216,"Hannover-Song, Duett"],["What It's All For",169,"hart und schnell"],["Loud Enough",188,"Funk-Rock, gegen rechts"],["Into The Storm",192,"steigert sich vom Flüstern zum Sturm (v2)"],["Quick Win",174,"über Strategieberatungen"]];
+const T=[["Loud Enough",188,"Funk-Rock, gegen rechts","12"],["What It's All For",169,"hart und schnell","11"],["Nothing To Complain",216,"Hannover-Song, Duett","10"],["Same Old Lie",208,"","01"],["Louder Than You",206,"mit Frauenstimme","02"],["Pull the Plug",194,"mit Schlagzeugsolo","03"],["My Street",204,"Ballade","04"],["Not Here, Not Now, Not Ever",138,"","05"],["Tomorrow's Still Ours",192,"Funk-Rock","06"],["Riff Raff Nation",182,"","07"],["Isar Fever",206,"","08"],["Born Here Too",198,"Garage-Rock, Frauenstimme","09"],["Into The Storm",192,"steigert sich vom Flüstern zum Sturm","13"],["Quick Win",174,"über Strategieberatungen","14"],["Machine Rhapsody",198,"Rock-Oper in fünf Akten","15"]];
 const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
 const $=id=>document.getElementById(id), audio=$("audio"), list=$("list"); let idx=-1;
 const total=T.reduce((a,t)=>a+t[1],0); $("meta").textContent=`${T.length} Songs · ${Math.floor(total/60)} Min. · Stand ${new Date(2026,9,13).toLocaleDateString("de-DE")}`;
@@ -83,7 +83,7 @@ T.forEach(([n,d,note],i)=>{const li=document.createElement("li");const b=documen
  b.innerHTML=`<span class="no">${String(i+1).padStart(2,"0")}</span><span class="name"></span><span class="dur">${fmt(d)}</span>`;
  b.querySelector(".name").textContent=n; if(note){const s=document.createElement("span");s.className="note";s.textContent=note;b.querySelector(".name").appendChild(s)}
  b.onclick=()=>{if(i===idx){audio.paused?audio.play():audio.pause()}else play(i)}; li.appendChild(b); list.appendChild(li)});
-function play(i){if(i<0||i>=T.length)return; idx=i; audio.src="tracks/"+String(i+1).padStart(2,"0")+".mp3"; audio.play().catch(()=>{});
+function play(i){if(i<0||i>=T.length)return; idx=i; audio.src="tracks/"+T[i][3]+".mp3"; audio.play().catch(()=>{});
  document.querySelectorAll(".track").forEach((el,j)=>el.setAttribute("aria-current",j===i?"true":"false"));
  $("now").textContent=String(i+1).padStart(2,"0")+" · "+T[i][0]; $("tot").textContent=fmt(T[i][1]); $("dock").hidden=false;
  if("mediaSession" in navigator) navigator.mediaSession.metadata=new MediaMetadata({title:T[i][0],artist:"Pachapaul",album:"Pacha Rock"});}
