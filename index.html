@@ -3,70 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta property="og:title" content="Pachapaul – Agua, Tierra, Luz">
-<meta property="og:description" content="14 ruhige Songs zum Durchhören">
-<meta property="og:image" content="cover.jpg">
-<link rel="icon" href="cover.jpg">
-<title>Agua, Tierra, Luz</title>
+<meta name="robots" content="noindex">
+<title>Pacha Rock</title>
+<meta property="og:title" content="Pachapaul – Pacha Rock">
+<meta property="og:description" content="Die bisherigen Songs des Rock-Albums">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&display=swap">
 <style>
-/* Layout: single centred column — cover, play-all control, track list; a mini player docks at the bottom */
+/* Layout: poster-style header, play-all control, track list; a player docks at the bottom */
 :root{
-  --night:#0d1626; --night-2:#14203a; --line:#25324d;
-  --gold:#dcbb8e; --gold-soft:#dcbb8e33; --cream:#f0e8dc; --muted:#9ba6bd;
-  --display:"Cormorant Garamond",Georgia,serif;
-  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ink:#121110; --ink-2:#1d1b19; --line:#33302c;
+  --amp:#ff5a1f; --amp-dim:#ff5a1f22; --bone:#f2ece4; --muted:#a39b91;
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
 }
-html,body{background:var(--night);color:var(--cream)}
-body{font-family:var(--body);font-size:16px;line-height:1.5;padding-inline:16px;padding-block:24px 120px}
-.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
-.cover{width:100%;aspect-ratio:1;max-width:100%;border-radius:6px;display:block;box-shadow:0 20px 60px #0008}
-header{display:flex;flex-direction:column;gap:4px}
-.artist{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
-h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,8vw,46px);line-height:1.05;margin:0;text-wrap:balance}
-.meta{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
-.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+html,body{background:var(--ink);color:var(--bone);margin:0}
+body{font-family:var(--body);font-size:16px;line-height:1.5;padding-inline:16px;padding-block:28px 130px}
+.wrap{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+.poster{border:2px solid var(--bone);padding:22px 20px 18px;position:relative;overflow:hidden;background:
+  repeating-linear-gradient(-45deg,transparent 0 14px,#ffffff06 14px 15px),var(--ink-2)}
+.poster .artist{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--amp);font-weight:600}
+.poster h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,19vw,112px);line-height:.88;margin:6px 0 0;letter-spacing:.01em;text-transform:uppercase}
+.poster h1 span{color:var(--amp)}
+.poster .sub{margin-top:12px;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.badge{position:absolute;top:14px;right:-34px;transform:rotate(35deg);background:var(--amp);color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.15em;padding:4px 40px;text-transform:uppercase}
 button{font:inherit;cursor:pointer}
-.play-all{background:var(--gold);color:var(--night);border:0;border-radius:999px;padding:12px 26px;font-weight:600;font-size:16px;display:inline-flex;gap:10px;align-items:center}
-.play-all:focus-visible,.track:focus-visible,.ctrl:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
-ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.track{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:32px 1fr auto;gap:12px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer}
-.track:hover{background:var(--night-2)}
-.no{color:var(--muted);font-variant-numeric:tabular-nums;font-size:14px;text-align:right}
-.name{font-size:17px;min-width:0;overflow-wrap:anywhere}
+.play-all{align-self:flex-start;background:var(--amp);color:var(--ink);border:0;padding:13px 26px;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+.play-all:focus-visible,.track:focus-visible,.ctrl:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+ol{list-style:none;margin:0;padding:0;border-top:2px solid var(--bone)}
+.track{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.track:hover{background:var(--ink-2)}
+.no{font-family:var(--display);font-size:24px;color:var(--muted);text-align:right;line-height:1}
+.name{font-size:17px;font-weight:500;min-width:0;overflow-wrap:anywhere}
+.note{display:block;font-size:13px;font-weight:400;color:var(--muted)}
 .dur{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
-.track[aria-current="true"] .name{color:var(--gold);font-weight:500}
-.track[aria-current="true"] .no{color:var(--gold)}
-.dock{position:fixed;left:0;right:0;bottom:0;background:var(--night-2);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
-.dock-in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:6px}
+.track[aria-current="true"] .name,.track[aria-current="true"] .no{color:var(--amp)}
+.dock{position:fixed;left:0;right:0;bottom:0;background:var(--ink-2);border-top:2px solid var(--amp);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.dock-in{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:6px}
 .row{display:flex;align-items:center;gap:12px}
-.now{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
-.ctrl{background:none;border:1px solid var(--line);color:var(--cream);border-radius:999px;width:42px;height:42px;display:grid;place-items:center;font-size:16px}
-.ctrl.main{background:var(--gold);color:var(--night);border-color:var(--gold)}
+.now{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.ctrl{background:none;border:1px solid var(--line);color:var(--bone);width:42px;height:42px;display:grid;place-items:center;font-size:16px}
+.ctrl.main{background:var(--amp);color:var(--ink);border-color:var(--amp)}
 .bar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-input[type=range]{flex:1;accent-color:var(--gold);min-width:0}
+input[type=range]{flex:1;accent-color:var(--amp);min-width:0}
 footer{color:var(--muted);font-size:13px}
 </style>
-
-<style>body{margin:0}</style>
 </head>
 <body>
 <div class="wrap">
-  <img class="cover" src="cover.jpg" alt="Albumcover Agua, Tierra, Luz – goldener Zen-Kreis auf Nachtblau">
-  <header>
+  <header class="poster">
+    <div class="badge">Demo</div>
     <div class="artist">Pachapaul</div>
-    <h1>Agua, Tierra, Luz</h1>
-    <div class="meta" id="meta">14 Songs</div>
+    <h1>Pacha<br><span>Rock</span></h1>
+    <div class="sub" id="meta">8 Songs</div>
   </header>
-  <div class="actions">
-    <button class="play-all" id="playAll" type="button">▶ Album abspielen</button>
-  </div>
+  <button class="play-all" id="playAll" type="button">▶ Alles abspielen</button>
   <ol id="list"></ol>
-  <footer>Pachapaul · Agua, Tierra, Luz · 2026</footer>
+  <footer>Pachapaul · Pacha Rock · Zwischenstand, noch nicht veröffentlicht</footer>
 </div>
-
 <div class="dock" id="dock" hidden>
   <div class="dock-in">
     <div class="row">
@@ -79,55 +74,29 @@ footer{color:var(--muted);font-size:13px}
   </div>
 </div>
 <audio id="audio" preload="none"></audio>
-
 <script>
-const T=[["Bella Múnich",206],["Corazón Abierto",198],["The Healer Within",230],["Om Shanti",180],["Lluvia Suave",194],["Gracias por nada",196],["Bambú y Agua",306],["Luna de Agua",225],["Tierra que Respira",268],["Perhentian",244],["Luke",222],["Alemán",207],["Old Shadows",216],["Only Here, Only Now (Bonus Track)",270]];
+const T=[["Same Old Lie",208,""],["Louder Than You",206,"mit Frauenstimme"],["Pull the Plug",194,"mit Schlagzeugsolo"],["My Street",204,"Ballade"],["Not Here, Not Now, Not Ever",138,""],["Tomorrow's Still Ours",192,"Funk-Rock"],["Riff Raff Nation",182,""],["Isar Fever",206,"neue Fassung (v2)"]];
 const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
-const $=id=>document.getElementById(id);
-const audio=$("audio"),list=$("list");
-let idx=-1;
-const total=T.reduce((a,t)=>a+t[1],0);
-$("meta").textContent=`14 Songs · ${Math.floor(total/60)} Min.`;
-T.forEach(([n,d],i)=>{
-  const li=document.createElement("li");
-  const b=document.createElement("button");
-  b.type="button";b.className="track";b.id="t"+i;
-  b.innerHTML=`<span class="no">${String(i+1).padStart(2,"0")}</span><span class="name"></span><span class="dur">${fmt(d)}</span>`;
-  b.querySelector(".name").textContent=n;
-  b.onclick=()=>{ if(i===idx){audio.paused?audio.play():audio.pause()} else play(i) };
-  li.appendChild(b);list.appendChild(li);
-});
-function play(i){
-  if(i<0||i>=T.length)return;
-  idx=i;
-  audio.src="tracks/"+String(i+1).padStart(2,"0")+".mp3";
-  audio.play().catch(()=>{});
-  document.querySelectorAll(".track").forEach((el,j)=>el.setAttribute("aria-current",j===i?"true":"false"));
-  $("now").textContent=String(i+1).padStart(2,"0")+" · "+T[i][0];
-  $("tot").textContent=fmt(T[i][1]);
-  $("dock").hidden=false;
-  if("mediaSession" in navigator){
-    navigator.mediaSession.metadata=new MediaMetadata({title:T[i][0],artist:"Pachapaul",album:"Agua, Tierra, Luz",artwork:[{src:"cover.jpg",sizes:"1000x1000",type:"image/jpeg"}]});
-  }
-}
+const $=id=>document.getElementById(id), audio=$("audio"), list=$("list"); let idx=-1;
+const total=T.reduce((a,t)=>a+t[1],0); $("meta").textContent=`${T.length} Songs · ${Math.floor(total/60)} Min. · Stand ${new Date(2026,9,13).toLocaleDateString("de-DE")}`;
+T.forEach(([n,d,note],i)=>{const li=document.createElement("li");const b=document.createElement("button");b.type="button";b.className="track";
+ b.innerHTML=`<span class="no">${String(i+1).padStart(2,"0")}</span><span class="name"></span><span class="dur">${fmt(d)}</span>`;
+ b.querySelector(".name").textContent=n; if(note){const s=document.createElement("span");s.className="note";s.textContent=note;b.querySelector(".name").appendChild(s)}
+ b.onclick=()=>{if(i===idx){audio.paused?audio.play():audio.pause()}else play(i)}; li.appendChild(b); list.appendChild(li)});
+function play(i){if(i<0||i>=T.length)return; idx=i; audio.src="tracks/"+String(i+1).padStart(2,"0")+".mp3"; audio.play().catch(()=>{});
+ document.querySelectorAll(".track").forEach((el,j)=>el.setAttribute("aria-current",j===i?"true":"false"));
+ $("now").textContent=String(i+1).padStart(2,"0")+" · "+T[i][0]; $("tot").textContent=fmt(T[i][1]); $("dock").hidden=false;
+ if("mediaSession" in navigator) navigator.mediaSession.metadata=new MediaMetadata({title:T[i][0],artist:"Pachapaul",album:"Pacha Rock"});}
 $("playAll").onclick=()=>play(0);
 $("prev").onclick=()=>play(audio.currentTime>3?idx:Math.max(0,idx-1));
 $("next").onclick=()=>{if(idx<T.length-1)play(idx+1)};
 $("toggle").onclick=()=>audio.paused?audio.play():audio.pause();
-audio.addEventListener("play",()=>{$("toggle").textContent="❚❚";$("toggle").setAttribute("aria-label","Pause")});
-audio.addEventListener("pause",()=>{$("toggle").textContent="▶";$("toggle").setAttribute("aria-label","Abspielen")});
+audio.addEventListener("play",()=>{$("toggle").textContent="❚❚"});
+audio.addEventListener("pause",()=>{$("toggle").textContent="▶"});
 audio.addEventListener("ended",()=>{if(idx<T.length-1)play(idx+1)});
-audio.addEventListener("timeupdate",()=>{
-  const d=audio.duration||T[idx][1];
-  $("cur").textContent=fmt(audio.currentTime);
-  $("seek").value=d?audio.currentTime/d*100:0;
-});
+audio.addEventListener("timeupdate",()=>{const d=audio.duration||T[idx][1];$("cur").textContent=fmt(audio.currentTime);$("seek").value=d?audio.currentTime/d*100:0});
 $("seek").addEventListener("input",e=>{const d=audio.duration||T[idx][1];audio.currentTime=e.target.value/100*d});
-if("mediaSession" in navigator){
-  navigator.mediaSession.setActionHandler("nexttrack",()=>{if(idx<T.length-1)play(idx+1)});
-  navigator.mediaSession.setActionHandler("previoustrack",()=>play(Math.max(0,idx-1)));
-}
+if("mediaSession" in navigator){navigator.mediaSession.setActionHandler("nexttrack",()=>{if(idx<T.length-1)play(idx+1)});navigator.mediaSession.setActionHandler("previoustrack",()=>play(Math.max(0,idx-1)))}
 </script>
-
 </body>
 </html>
